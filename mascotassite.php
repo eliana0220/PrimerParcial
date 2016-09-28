@@ -18,7 +18,7 @@
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
 <script type="text/javascript" src="js/funcionesAjax.js"></script>
 <script type="text/javascript" src="js/funcionesLogin.js"></script>
-<script type="text/javascript" src="js/funcionesABM.js"></script>
+<script type="text/javascript" src="FuncionesParcial.js"></script>
 
 </head>
 
