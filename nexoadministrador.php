@@ -14,10 +14,10 @@
 		case 'MostarLogin':
 			include("partes/formLogin.php");
 
-		case 'Borrar':		var_dump("borro");
-							$mascota = new mascota();
+		case 'Borrar':		$obj = isset($_POST['mascota']) ? json_decode(json_encode($_POST['mascota'])) : NULL;
+							//$mascota = new mascota();
 							$mascota->nombre=$_POST['nombre'];
-							$cantidad=$mascota->BorrarMascota();
+							$cantidad=Mascota::Borrar;
 							echo $cantidad;
 							break;
 

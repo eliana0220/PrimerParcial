@@ -118,7 +118,7 @@
 		}
 
 		//$cantidad=$mascota->BorrarMascota();
-		public function BorrarMascota()
+		public function Borrar()
 		{
 			$mascotaBorar = Mascota:: TraerMascota ( $this->nombre);
 			$listaMascotas = Mascota:: TraerListaMascotas();

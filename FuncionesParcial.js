@@ -112,7 +112,7 @@ function Borrar(mascota)
 		type:"post",
 		data:{
 			accion:"Borrar",
-			id:mascota	
+			mascota:mascota	
 		}
 	});
 	funcionAjax.done(function(retorno){
@@ -132,7 +132,7 @@ function Editar(mascota)
 		type:"post",
 		data:{
 			accion:"Editar",
-			id:mascota	
+			mascota:mascota	
 		}
 	});
 	funcionAjax.done(function(retorno){
