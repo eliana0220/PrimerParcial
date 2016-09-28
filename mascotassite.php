@@ -29,8 +29,7 @@
 	<header id="header">
 
 		<hgroup>
-			<h1 id="site-logo"><a href="#">Principal</a></h1>
-			<h2 id="site-description">formato ajustable</h2>
+			<h1 id="site-logo"><a href="#">Mascotas</a></h1>
 		</hgroup>
 
 		<nav>
@@ -39,22 +38,41 @@
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
-
-		<form id="searchform" method = "POST" >
-		
-		<div>
-			NOMBRE: <input type = "text"  name = "usuario"><br>
-			CONTRASEÑA: <input type = "text" name "clave"><br>
-			RECORDARME: <input type= "checkbox" name = "recordarme"><br>
-			<input type = "submit" name = "enviar">
-		</div>
-
-			<input type="search" id="usuario" readonly placeholder="Sin Usuario">
-
-		</form>
+	
 
 	</header>
 	<!-- /#header -->
+	
+	<form id="mascota" method = "POST" action = "nexoadministrador.php">
+		<div id="content" >
+
+			NOMBRE: <input type = "text"  name = "nombre"><br>
+			EDAD:	<input type = "text"  name = "edad"><br>
+			FECHA DE NACIMIENTO: <input type = "date"  name = "nac"><br>
+			<!-- TIPO: 
+				<select>
+		  			<option id="tipo" value="perro">Perro</option>
+		  			<option id="tipo" value="gato">Gato</option>
+				</select>	
+			<br> -->
+			SEXO: <br>
+			<input type = "radio"  name = "sexo" value = "Masculino">MASCULINO<br>
+			<input type = "radio"  name = "sexo" value = "Femenino">FEMENINO<br>
+			<br><br>
+			<input type = "submit" name = "accion" value = "Guardar" >
+		</div>
+
+		<div id="grillaMascotas">
+
+			<?php
+				require "mascota.php";
+				$grilla = Mascota:: ConstruirGrillaMascotas();
+				echo ($grilla);
+			?>
+
+		</div>	
+	</form>
+	<!-- /#content --> 
 	
 	
 	<footer id="footer">
