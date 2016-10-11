@@ -1,3 +1,9 @@
+$(document).ready(function(){
+	
+	MostrarGrillaMascotas();
+	
+});
+
 function validarLogin()
 {
 		var ingreso_ok='';
@@ -160,6 +166,8 @@ function BorrarMascota(mascota)
 	});
 	funcionAjax.done(function(retorno){
 		alert(retorno);
+		//MostrarGrillaMascotas();
+		//$("#grillaMascotas").html(grilla);
 		// Mostrar("MostrarGrilla");
 		// $("#informe").html("cantidad de eliminados "+ retorno);	
 		
@@ -169,18 +177,25 @@ function BorrarMascota(mascota)
 	});	
 }
 
-function Editar(mascota)
+function ModificarMascota(mascota)
 {
+	alert("ajax modificar");
 	var funcionAjax=$.ajax({
 		url:"nexoadministrador.php",
 		type:"post",
 		data:{
-			accion:"Editar",
+			accion:"ModificarMascota",
 			mascota:mascota	
 		}
 	});
-	funcionAjax.done(function(retorno){
-					Mostrar("MostrarFormAlta");
+	funcionAjax.then(function (mascota)
+	{	
+		alert("ingreso a then");
+		alert(mascota);
+		$("#mascota").html(exito);
+	});
+	//funcionAjax.done(function(retorno){
+					/*Mostrar("MostrarFormAlta");
 					
 					setTimeout(function(){
 
@@ -192,12 +207,12 @@ function Editar(mascota)
 				 	alert("llego");
 
 
-						 }, 3000);
+						 }, 3000);*/
 					
 		
 
 
-	});
+	//});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 
@@ -207,15 +222,12 @@ function Editar(mascota)
 
 	}); }
 
-	$(document).ready(function(){
 	
-	MostrarGrillaMascotas();
-	
-});
 
 function MostrarGrillaMascotas(){
 	
     var pagina = "./nexoadministrador.php";
+    //var pagina = "mascotassite.php";
 
 	$.ajax({
         type: 'POST',
@@ -224,14 +236,14 @@ function MostrarGrillaMascotas(){
         dataType: "html",
         async: true
     } 
-   /* success: function (html) {
-              $("#grillaMascotas").html(grilla);
-          }*/
+   //success: function (html) {
+    //          $("#grillaMascotas").html(grilla);
+    //      }
     )
-	/*.done(function (grilla) {
+	.done(function (grilla) {
 
 		$("#grillaMascotas").html(grilla);
-	})*/
+	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
         alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
     });   

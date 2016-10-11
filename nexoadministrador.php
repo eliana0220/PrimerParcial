@@ -20,6 +20,7 @@
 			include("partes/formLogin.php");*/
 
 		case 'BorrarMascota':	
+							
 							echo 'nhnnbftvvvrdvvddr';
 							var_dump('LLLEGAAAAAMO');	
 							$obj = isset($_POST['mascota']) ? json_decode(json_encode($_POST['mascota'])) : NULL;
@@ -31,22 +32,31 @@
 							else{
 								$retorno["Mensaje"] = "El archivo fue escrito correctamente. PRODUCTO eliminado CORRECTAMENTE!!!";
 							}
-	
+							
 							echo json_encode($retorno);
-		
-		break;
-
 							break;
 
-		case 'Editar':
+		case 'ModificarMascota':
+						var_dump("nexo modificar");
 						sleep(3);
-						$mascota = Mascota::TraerMascota($_POST['nombre']);		
+
+						$obj = isset($_POST['mascota']) ? json_decode(json_encode($_POST['mascota'])) : NULL;
+						$mascota = Mascota::ModificarMascota($obj->nombre);	
+						var_dump($mascota);	
+						$_POST["nombre"] =$mascota->nombre;
+						$_POST["edad"] =$mascota->edad;
+						$_POST["nac"] =$mascota->nac;
+						$_POST["sexo"] =$mascota->sexo;
+						var_dump("POST");
+						var_dump($_POST);
 						echo json_encode($mascota) ;
 
 		case 'mostrarGrillaMascotas': 
 										//require "mascota.php";
+										//sleep(5);
 										$grilla = Mascota:: ConstruirGrillaMascotas();
 										echo ($grilla);
+										//header("location:mascotassite.php");
 										break;
 
 		default:

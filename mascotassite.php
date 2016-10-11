@@ -48,7 +48,7 @@
 			<tr> <th></th><th></th> </tr>
 			<tr>
 				<td>NOMBRE:</td> 
-				<td><input type = "text"  name = "nombre"></td>
+				<td><input type = "text"  name = "nombre" value="<?php if(isset($_POST['nombre'])) { echo ($_POST['nombre']); } ?>"></td>
 			</tr>
 			<tr>
 				<td>EDAD:</td>

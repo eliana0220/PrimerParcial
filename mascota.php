@@ -81,7 +81,7 @@
 								
 								<td>".$mas->sexo.  	   "</td>
 								<td><input type='button' value='Eliminar' class='MiBotonUTN' id='btnEliminar' onclick='BorrarMascota($mascota)' />
-								<input type='button' value='Modificar' class='MiBotonUTN' id='btnModificar' onclick='Editar($mascota)' /></td>
+								<input type='button' value='Modificar' class='MiBotonUTN' id='btnModificar' onclick='ModificarMascota($mascota)' /></td>
 							</tr>";
 			}
 		
@@ -153,6 +153,16 @@
 			}
 		}//cierre de BorrarMascota
 
+		public function ModificarMascota($obj)
+		{
+			var_dump("Metodo php Modificar");
+			var_dump($obj);
+			$mascotaAux = new mascota ($obj, "", "", "");
+			$mascotaMod = Mascota:: TraerMascota ( $mascotaAux->nombre);
+			Mascota::BorrarMascota($obj);
+			var_dump($mascotaMod);
+			return $mascotaMod;
+		}//cierre ModificarMascota
 	}//cierre class Mascota
 
  
