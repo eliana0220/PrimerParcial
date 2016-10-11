@@ -16,9 +16,8 @@
 <link href="css/media-queries.css" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-<script type="text/javascript" src="js/funcionesAjax.js"></script>
-<script type="text/javascript" src="js/funcionesLogin.js"></script>
 <script type="text/javascript" src="FuncionesParcial.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
 
 </head>
 
@@ -32,12 +31,12 @@
 			<h1 id="site-logo"><a href="#">Mascotas</a></h1>
 		</hgroup>
 
-		<nav>
+		<!-- <nav>
 			<ul id="main-nav" class="clearfix">
 				<li><a onclick="MostarLogin()"  class="btn btn-primary"id="BotonLogin" >Login<br>-Sesión-</a> </li>
 			</ul>
-			<!-- /#main-nav --> 
-		</nav>
+			<!-- /#main-nav 
+		</nav> -->
 	
 
 	</header>
@@ -45,20 +44,37 @@
 	
 	<form id="mascota" method = "POST" action = "nexoadministrador.php">
 		<div id="content" >
-
-			NOMBRE: <input type = "text"  name = "nombre"><br>
-			EDAD:	<input type = "text"  name = "edad"><br>
-			FECHA DE NACIMIENTO: <input type = "date"  name = "nac"><br>
+		<table id="tabla">
+			<tr> <th></th><th></th> </tr>
+			<tr>
+				<td>NOMBRE:</td> 
+				<td><input type = "text"  name = "nombre"></td>
+			</tr>
+			<tr>
+				<td>EDAD:</td>
+				<td><input type = "text"  name = "edad"></td>
+			</tr>
+			<tr>
+				<td>FECHA DE NACIMIENTO:</td> 
+				<td><input type = "date"  name = "nac"></td> 
+			</tr>
+			<tr>
+				<td>SEXO:</td>
+				<td><input type = "radio"  name = "sexo" value = "Masculino">MASCULINO<br></td>
+				<td><input type = "radio"  name = "sexo" value = "Femenino">FEMENINO<br></td>
+			</tr>
+			<!-- <tr>
+				<td></td>
+				<td></td>
+			</tr> -->
 			<!-- TIPO: 
 				<select>
 		  			<option id="tipo" value="perro">Perro</option>
 		  			<option id="tipo" value="gato">Gato</option>
 				</select>	
 			<br> -->
-			SEXO: <br>
-			<input type = "radio"  name = "sexo" value = "Masculino">MASCULINO<br>
-			<input type = "radio"  name = "sexo" value = "Femenino">FEMENINO<br>
-			<br><br>
+			 
+		</table>
 			<input type = "submit" name = "accion" value = "Guardar" >
 		</div>
 

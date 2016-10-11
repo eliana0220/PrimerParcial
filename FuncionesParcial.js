@@ -1,27 +1,46 @@
 function validarLogin()
 {
-		var varUsuario=$("#correo").val();
+		var ingreso_ok='';
+		var varUsuario=$("#nombre").val();
 		var varClave=$("#clave").val();
 		var recordar=$("#recordarme").is(':checked');
 		
 $("#informe").html("<img src='imagenes/ajax-loader.gif' style='width: 30px;'/>");
-	
 
 	var funcionAjax=$.ajax({
 		url:"php/validarUsuario.php",
 		type:"post",
 		data:{
 			recordarme:recordar,
-			usuario:varUsuario,
+			nombre:varUsuario,
 			clave:varClave
-		}
+		},
+		success: function(retorno) {
+        //console.log(result);
+        if (retorno == "ingreso")  {
+        	document.location.href="mascotassite.php";
+        	}
+        else{
+        		$("#informe").html("usuario o clave incorrecta");	
+				$("#formLogin").addClass("animated bounceInLeft");
+        	}
+        }
 	});
 
+//alert('Redirec');
+//window.location.replace("www.google.com.ar");
+//location.href = "mascotassite.php";
+/*window.open("mascotassite.php");*/
+//return true;
 
-	funcionAjax.done(function(retorno){
-		//alert(retorno);
+  /*funcionAjax.done(function(retorno){
+		alert(retorno);
+	 });*/
+
+/*	funcionAjax.done(function(retorno){
+		alert(retorno);
 			if(retorno!="No-esta"){	
-				MostarBotones();
+				// MostarBotones();
 				MostarLogin();
 
 				$("#BotonLogin").html("Ir a salir<br>-Sesión-");
@@ -32,12 +51,25 @@ $("#informe").html("<img src='imagenes/ajax-loader.gif' style='width: 30px;'/>")
 				$("#informe").html("usuario o clave incorrecta");	
 				$("#formLogin").addClass("animated bounceInLeft");
 			}
+			if (retorno == "ingreso") 
+			{
+				alert('Redirec');
+				//window.location.href = "http://localhost:8080/PrimerParcial/mascotassite.php";
+				//window.location.assign("http://localhost:8080/PrimerParcial/mascotassite.php");
+				ingreso_ok = 'X';
+				//window.open("mascotassite.php");
+				//window.location="http://localhost:8080/PrimerParcial/mascotassite.php";
+			}
 	});
-	funcionAjax.fail(function(retorno){
-		$("#botonesABM").html(":(");
-		$("#informe").html(retorno.responseText);	
-	});
-	
+	// funcionAjax.fail(function(retorno){
+	// 	$("#botonesABM").html(":(");
+	// 	$("#informe").html(retorno.responseText);	
+	// });
+	alert('tttttt');
+	if (ingreso_ok =='X')
+	{
+		window.open("mascotassite.php");
+	}*/	
 }
 function deslogear()
 {	
@@ -71,7 +103,7 @@ function MostarBotones()
 function MostarLogin()
 {
 		//alert(queMostrar);
-/*	var funcionAjax=$.ajax({
+/*	var funcionAjax=$.ajax({ss
 		url:"nexo.php",
 		type:"post",
 		data:{queHacer:"MostarLogin"}
@@ -89,35 +121,47 @@ function MostarLogin()
 
 	});
 */
-	$.ajax({
-		url :"nexoadministrador.php",
-		type : "post",
-		data: {accion:"MostrarLogin"}
-		})
-	.then(function si(exito)
+ 	 alert('tEST');
+ 	 var pagina = "test.php";
+
+	$.ajax({ 
+		type: "POST",
+		url: 'nexoadministrador.php',
+		data: { accion : "MostrarLogin"}
+		/*success: function (html) {
+              alert('successful : ' + html);
+              $("#result").html("Successful");
+          },
+          error: function(data, errorThrown)
+          {
+              alert('request failed :'+errorThrown);
+          }*/
+		});
+/*	.then(function si(exito)
 	{	
 		$("#principal").html(exito);
 	},
 	function no(error)
 	{
 		alert("ERROR!");
-	});
+	})*/
 }
 
-function Borrar(mascota)
+function BorrarMascota(mascota)
 {
-	//alert(idParametro);
+	alert("borras");
 		var funcionAjax=$.ajax({
 		url:"nexoadministrador.php",
 		type:"post",
 		data:{
-			accion:"Borrar",
+			accion:"BorrarMascota",
 			mascota:mascota	
 		}
 	});
 	funcionAjax.done(function(retorno){
-		Mostrar("MostrarGrilla");
-		$("#informe").html("cantidad de eliminados "+ retorno);	
+		alert(retorno);
+		// Mostrar("MostrarGrilla");
+		// $("#informe").html("cantidad de eliminados "+ retorno);	
 		
 	});
 	funcionAjax.fail(function(retorno){	
@@ -161,4 +205,30 @@ function Editar(mascota)
 
 
 
-	});
+	}); }
+
+	$(document).ready(function(){
+	
+	MostrarGrillaMascotas();
+	
+});
+
+function MostrarGrillaMascotas(){
+	
+    var pagina = "./nexoadministrador.php";
+
+	$.ajax({
+        type: 'POST',
+        url: pagina,
+		data : { accion : "mostrarGrillaMascotas"},
+        dataType: "html",
+        async: true
+    })
+	.done(function (grilla) {
+
+		$("#grillaMascotas").html(grilla);
+	})
+	.fail(function (jqXHR, textStatus, errorThrown) {
+        alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
+    });   
+}

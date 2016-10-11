@@ -1,13 +1,12 @@
 <?php 
 session_start();
-$usuario=$_POST['usuario'];
+$usuario=$_POST['nombre'];
 $clave=$_POST['clave'];
 $recordar=$_POST['recordarme'];
 
-$retorno;
-
 if($usuario=="octavio@admin.com.ar" && $clave=="1234")
 {			
+/*	var_dump($_SESSION);*/
 	if($recordar=="true")
 	{
 		setcookie("registro",$usuario,  time()+36000 , '/');
@@ -18,7 +17,7 @@ if($usuario=="octavio@admin.com.ar" && $clave=="1234")
 		
 	}
 	$_SESSION['registrado']="octavio";
-	$retorno=" ingreso";
+	$retorno="ingreso";
 
 	
 }else

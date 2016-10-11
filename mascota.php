@@ -80,7 +80,7 @@
 								<td>".$mas->nacimiento."</td>
 								
 								<td>".$mas->sexo.  	   "</td>
-								<td><input type='button' value='Eliminar' class='MiBotonUTN' id='btnEliminar' onclick='Borrar($mascota)' />
+								<td><input type='button' value='Eliminar' class='MiBotonUTN' id='btnEliminar' onclick='BorrarMascota($mascota)' />
 								<input type='button' value='Modificar' class='MiBotonUTN' id='btnModificar' onclick='Editar($mascota)' /></td>
 							</tr>";
 			}
@@ -117,28 +117,39 @@
 			return $mascota;
 		}
 
-		//$cantidad=$mascota->BorrarMascota();
-		public function Borrar()
+
+		public function BorrarMascota($obj)
 		{
-			$mascotaBorar = Mascota:: TraerMascota ( $this->nombre);
-			$listaMascotas = Mascota:: TraerListaMascotas();
-			foreach ($listaMascotas as $mascota) 
+			$mascotaBorrar = new mascota ($obj, "", "", "");
+
+			if ($mascotaBorrar->nombre == NULL) 
 			{
-				if ($mascota[0] != $mascotaBorar[0]) 
+				return false;
+			}
+			else
+			{
+				$index = 0;
+				$mascotaBorrar = Mascota:: TraerMascota ( $mascotaBorrar->nombre);
+				$listaMascotas = Mascota:: TraerListaMascotas();
+				foreach ($listaMascotas as $mascota) 
 				{
-					unset($mascota);
+					$index = $index +1;
+					if ($mascota->nombre != $mascotaBorrar[0]) 
+					{
+						$indexelim = $index;
+					}
 				}
+				unset($listaMascotas[$indexelim]);
+				$archivo=fopen("ListaMascotas.txt","w");
+   				fclose($archivo);
+				foreach ($listaMascotas as $mascota) 
+				{
+					Mascota:: AltaMascota ($mascota);
+				}
+				return true;
 			}
-
-   			$archivo=fopen("ListaMascotas.txt","w");
-   			fclose($archivo);
-
-			foreach ($listaMascotas as $mascota) 
-			{
-				Mascota:: AltaMascota ($mascota);
-			}
-		}
+		}//cierre de BorrarMascota
 
 	}//cierre class Mascota
 
- ?>
+ 

@@ -16,10 +16,11 @@
 <link href="css/media-queries.css" rel="stylesheet" type="text/css">
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  <link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-<script type="text/javascript" src="js/funcionesAjax.js"></script>
-<script type="text/javascript" src="js/funcionesLogin.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="js/funcionesAjax.js"></script>
+<script type="text/javascript" src="js/funcionesLogin.js"></script> -->
 <script type="text/javascript" src="FuncionesParcial.js"></script>
-
+<script type="text/javascript" src="jquery.js"></script>
 </head>
 
 <body>
@@ -29,37 +30,36 @@
 	<header id="header">
 
 		<hgroup>
-			<h1 id="site-logo"><a href="#">Principal</a></h1>
-			<h2 id="site-description">formato ajustable</h2>
+			<h1 id="site-logo"><a href="#">Bienvenido</a></h1>
+			<h2 id="site-description">Ingrese</h2>
 		</hgroup>
 
-		<nav>
+<!-- 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li><a onclick="MostarLogin()"  class="btn btn-primary"id="BotonLogin" >Login<br>-Sesión-</a> </li>
 			</ul>
-			<!-- /#main-nav --> 
-		</nav>
+		</nav> -->
 
-		<form id="searchform" method = "POST" >
-		
-		<div>
-			NOMBRE: <input type = "text"  name = "usuario"><br>
-			CONTRASEÑA: <input type = "text" name "clave"><br>
-			RECORDARME: <input type= "checkbox" name = "recordarme"><br>
-			<input type = "submit" name = "enviar">
-		</div>
+<!-- 		<form id="searchform" method = "POST" >
 
 			<input type="search" id="usuario" readonly placeholder="Sin Usuario">
 
-		</form>
+		</form>  -->
 
 	</header>
 	<!-- /#header -->
 	
+
+    <div align="center">
+		NOMBRE:     <input type = "text"  name = "nombre" id="nombre"><br>
+		CONTRASEÑA: <input type = "text" name "clave" id="clave"><br>
+		RECORDARME: <input type= "checkbox" name = "recordarme" id="checkbox"><br>
+		<input type = "submit" name = "accion" onclick="validarLogin()">
+ 	</div>
 	
 	<footer id="footer">
 	
-		<p>templete by <a href="http://www.octavio.com.ar">Octavio Villegas</a></p>
+		<p>Template by <a href="http://www.octavio.com.ar"> Octavio Villegas</a></p>
 
 	</footer>
 	<!-- /#footer --> 
