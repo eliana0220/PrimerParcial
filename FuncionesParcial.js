@@ -247,7 +247,7 @@ function BorrarMascota(mascota)
 	$("#edad").val(mascota.edad);
 	$("#nac").val(mascota.nacimiento);
 	$("#sexo").val(mascota.sexo);
-	alert("ajax modificar");
+	//alert("ajax modificar");
 	var funcionAjax=$.ajax({
 		url:"nexoadministrador.php",
 		type:"post",

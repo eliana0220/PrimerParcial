@@ -34,26 +34,41 @@
 			<h2 id="site-description">Ingrese</h2>
 		</hgroup>
 
-<!-- 		<nav>
+		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li><a onclick="MostarLogin()"  class="btn btn-primary"id="BotonLogin" >Login<br>-Sesión-</a> </li>
 			</ul>
-		</nav> -->
+		</nav>
 
-<!-- 		<form id="searchform" method = "POST" >
+		<form id="searchform" method = "POST" >
 
 			<input type="search" id="usuario" readonly placeholder="Sin Usuario">
 
-		</form>  -->
+		</form> 
 
 	</header>
 	<!-- /#header -->
 	
 
     <div align="center">
-		NOMBRE:     <input type = "text"  name = "nombre" id="nombre"><br>
-		CONTRASEÑA: <input type = "text" name "clave" id="clave"><br>
-		RECORDARME: <input type= "checkbox" name = "recordarme" id="checkbox"><br>
+    	<br>
+		<br>
+		<br>
+    	<table>
+    		<tr>
+    			<td>NOMBRE:     </td>
+    			<td><input type = "text"  name = "nombre" id="nombre"></td>
+    		</tr>	
+    		<tr>
+    			<td>CONTRASEÑA: </td>
+    			<td><input type = "text" name "clave" id="clave"></td>
+    		</tr>	
+    		<tr>
+    			<td>RECORDARME: </td>
+    			<td><input type= "checkbox" name = "recordarme" id="checkbox"></td>
+    		</tr>	
+    	</table>
+		
 		<input type = "submit" name = "accion" onclick="validarLogin()">
  	</div>
 	

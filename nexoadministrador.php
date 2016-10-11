@@ -1,7 +1,7 @@
 <?php 
 	require "mascota.php";
 
-	//$accion = $_POST['accion'];
+	$accion = $_POST['accion'];
     //echo $accion;
 	//var_dump($accion);
 	switch ($accion) 
@@ -26,6 +26,7 @@
 							else{
 								$retorno["Mensaje"] = "El archivo fue escrito correctamente. PRODUCTO eliminado CORRECTAMENTE!!!";
 							}
+							header("location:mascotassite.php");
 							//echo json_encode($retorno);
 							break;
 
