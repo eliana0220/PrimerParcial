@@ -37,8 +37,6 @@
 			</ul>
 			<!-- /#main-nav 
 		</nav> -->
-	
-
 	</header>
 	<!-- /#header -->
 	
@@ -48,20 +46,20 @@
 			<tr> <th></th><th></th> </tr>
 			<tr>
 				<td>NOMBRE:</td> 
-				<td><input type = "text"  name = "nombre" value="<?php if(isset($_POST['nombre'])) { echo ($_POST['nombre']); } ?>"></td>
+				<td><input type = "text"  name = "nombre" id="nombre"></td>
 			</tr>
 			<tr>
 				<td>EDAD:</td>
-				<td><input type = "text"  name = "edad"></td>
+				<td><input type = "text"  name = "edad"  id="edad" ></td>
 			</tr>
 			<tr>
 				<td>FECHA DE NACIMIENTO:</td> 
-				<td><input type = "date"  name = "nac"></td> 
+				<td><input type = "date"  name = "nac" id="nac" ></td> 
 			</tr>
 			<tr>
 				<td>SEXO:</td>
-				<td><input type = "radio"  name = "sexo" value = "Masculino">MASCULINO<br></td>
-				<td><input type = "radio"  name = "sexo" value = "Femenino">FEMENINO<br></td>
+				<td><input type = "radio"  name = "sexo" id="sexo" value = "Masculino">MASCULINO<br></td>
+				<td><input type = "radio"  name = "sexo" id="sexo" value = "Femenino">FEMENINO<br></td>
 			</tr>
 			<!-- <tr>
 				<td></td>

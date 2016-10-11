@@ -136,15 +136,12 @@
 					$index = $index +1;
 					if ($mascota->nombre == $mascotaBorrar[0]) 
 					{
-						var_dump($mascota);
 						$indexelim = $index;
 					}
 				}
-				var_dump($listaMascotas[$indexelim]);
 				unset($listaMascotas[$indexelim]);
 				$archivo=fopen("ListaMascotas.txt","w");
    				fclose($archivo);
-   				var_dump($listaMascotas);
 				foreach ($listaMascotas as $mascota) 
 				{
 					Mascota:: AltaMascota ($mascota);
@@ -155,12 +152,9 @@
 
 		public function ModificarMascota($obj)
 		{
-			var_dump("Metodo php Modificar");
-			var_dump($obj);
 			$mascotaAux = new mascota ($obj, "", "", "");
 			$mascotaMod = Mascota:: TraerMascota ( $mascotaAux->nombre);
 			Mascota::BorrarMascota($obj);
-			var_dump($mascotaMod);
 			return $mascotaMod;
 		}//cierre ModificarMascota
 	}//cierre class Mascota

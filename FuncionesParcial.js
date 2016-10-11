@@ -155,7 +155,7 @@ function MostarLogin()
 
 function BorrarMascota(mascota)
 {
-	alert("borras");
+	//alert("borras");
 		var funcionAjax=$.ajax({
 		url:"nexoadministrador.php",
 		type:"post",
@@ -177,16 +177,34 @@ function BorrarMascota(mascota)
 	});	
 }
 
-function ModificarMascota(mascota)
+/*function ModificarMascota(mascota)
 {
 	alert("ajax modificar");
+	/*var varNombre=$("#nombre").val();
+	var varEdad=$("#edad").val();
+	var varNac=$("#nac").val();
+	var varSexo=$("#sexo").val();*/
+	
+	/*$("#nombre").val(mascota.nombre);
+	$("#edad").val(mascota.edad);
+	$("#nac").val(mascota.nac);
+	$("#sexo").val(mascota.sexo);
 	var funcionAjax=$.ajax({
-		url:"nexoadministrador.php",
+		//url:"nexoadministrador.php",
+		url:"mascotassite.php",
 		type:"post",
 		data:{
+			nombre:varNombre,
+			edad:varEdad,
+			nac:varNac,
+			sexo:varSexo,
 			accion:"ModificarMascota",
 			mascota:mascota	
-		}
+		},
+		success: function (data) {
+              alert('successful : ' + html);
+              $("#content").html(response);
+          }
 	});
 	funcionAjax.then(function (mascota)
 	{	
@@ -213,16 +231,41 @@ function ModificarMascota(mascota)
 
 
 	//});
-	funcionAjax.fail(function(retorno){	
+	/*funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 
 
 
 
 
-	}); }
+	}); }*/
 
-	
+	function ModificarMascota(mascota)
+{
+		//alert ("entro a ESSSSSSSSSTA!");
+	$("#nombre").val(mascota.nombre);
+	$("#edad").val(mascota.edad);
+	$("#nac").val(mascota.nacimiento);
+	$("#sexo").val(mascota.sexo);
+	alert("ajax modificar");
+	var funcionAjax=$.ajax({
+		url:"nexoadministrador.php",
+		type:"post",
+		data:{
+			accion:"ModificarMascota",
+			mascota:mascota	
+		}
+	});
+	funcionAjax.then(function (mascota)
+	{	},
+	function no (retorno)
+	{
+		alert("EXPLOTO MEN!!");
+	});
+	funcionAjax.fail(function(retorno){	
+		$("#informe").html(retorno.responseText);	
+
+	}); }
 
 function MostrarGrillaMascotas(){
 	

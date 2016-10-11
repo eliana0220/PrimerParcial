@@ -1,2 +1,5 @@
 Yenny|16|2000-07-07|Femenino
 
+Lobo|10|2006-10-10|Masculino
+
+Luna|10|2006-10-09|Femenino
