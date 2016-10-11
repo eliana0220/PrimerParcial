@@ -128,20 +128,23 @@
 			}
 			else
 			{
-				$index = 0;
+				$index = -1;
 				$mascotaBorrar = Mascota:: TraerMascota ( $mascotaBorrar->nombre);
 				$listaMascotas = Mascota:: TraerListaMascotas();
 				foreach ($listaMascotas as $mascota) 
 				{
 					$index = $index +1;
-					if ($mascota->nombre != $mascotaBorrar[0]) 
+					if ($mascota->nombre == $mascotaBorrar[0]) 
 					{
+						var_dump($mascota);
 						$indexelim = $index;
 					}
 				}
+				var_dump($listaMascotas[$indexelim]);
 				unset($listaMascotas[$indexelim]);
 				$archivo=fopen("ListaMascotas.txt","w");
    				fclose($archivo);
+   				var_dump($listaMascotas);
 				foreach ($listaMascotas as $mascota) 
 				{
 					Mascota:: AltaMascota ($mascota);

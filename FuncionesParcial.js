@@ -223,11 +223,15 @@ function MostrarGrillaMascotas(){
 		data : { accion : "mostrarGrillaMascotas"},
         dataType: "html",
         async: true
-    })
-	.done(function (grilla) {
+    } 
+   /* success: function (html) {
+              $("#grillaMascotas").html(grilla);
+          }*/
+    )
+	/*.done(function (grilla) {
 
 		$("#grillaMascotas").html(grilla);
-	})
+	})*/
 	.fail(function (jqXHR, textStatus, errorThrown) {
         alert(jqXHR.responseText + "\n" + textStatus + "\n" + errorThrown);
     });   
